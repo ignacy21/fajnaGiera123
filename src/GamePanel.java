@@ -18,15 +18,20 @@ public class GamePanel extends JPanel implements Runnable {
 
     @Override
     public void run() {
+
         while (thread != null) {
 
             update();
+            repaint();
+            if (player.isGameOver()) {
+                return;
+            }
+
             try {
                 Thread.sleep(16);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            repaint();
         }
     }
 

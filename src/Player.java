@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Player implements KeyListener {
 
-    public int x = 0;
-    public int y = 0;
+    public int x = 400;
+    public int y = 300;
     private int speed = 5;
     private String direction = "down";
     private int animationCounter = 0;
@@ -60,14 +60,14 @@ public class Player implements KeyListener {
             System.out.println("down");
             direction = "down";
         }
-        if (keyCode == KeyEvent.VK_LEFT) {
-            System.out.println("left");
-            direction = "left";
-        }
-        if (keyCode == KeyEvent.VK_RIGHT) {
-            System.out.println("right");
-            direction = "right";
-        }
+//        if (keyCode == KeyEvent.VK_LEFT) {
+//            System.out.println("left");
+//            direction = "left";
+//        }
+//        if (keyCode == KeyEvent.VK_RIGHT) {
+//            System.out.println("right");
+//            direction = "right";
+//        }
     }
 
     public void update() {
@@ -82,6 +82,14 @@ public class Player implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public boolean isGameOver() {
+        if (y >= 550 || y <= -30) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
